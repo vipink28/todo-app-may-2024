@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import AuthContext from '../auth/AuthContext';
 
 
 function Navbar(props) {
+    const { user } = useContext(AuthContext);
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -30,7 +33,7 @@ function Navbar(props) {
 
                         <li className="nav-item dropdown">
                             <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
+                                {user?.name}
                             </Link>
                             <ul className="dropdown-menu">
                                 <li><Link className="dropdown-item" href="#">Action</Link></li>

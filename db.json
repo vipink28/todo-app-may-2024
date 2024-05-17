@@ -5,6 +5,24 @@
       "email": "vipin@gmail.com",
       "password": "admin",
       "id": 1
+    },
+    {
+      "name": "Aman",
+      "email": "aman@gmail.com",
+      "password": "admin",
+      "id": 2
+    },
+    {
+      "name": "Komal",
+      "email": "komal@gmail.com",
+      "password": "admin",
+      "id": 3
+    },
+    {
+      "name": "Simran",
+      "email": "simran@gmail.com",
+      "password": "admin",
+      "id": 4
     }
   ],
   "tasks": []
