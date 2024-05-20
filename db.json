@@ -17,12 +17,6 @@
       "email": "komal@gmail.com",
       "password": "admin",
       "id": 3
-    },
-    {
-      "name": "Simran",
-      "email": "simran@gmail.com",
-      "password": "admin",
-      "id": 4
     }
   ],
   "tasks": []
