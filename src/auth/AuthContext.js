@@ -91,13 +91,21 @@ export const AuthProvider = ({ children }) => {
     }, [])
 
 
+    const logout = () => {
+        localStorage.removeItem("todouser");
+        setUser(null);
+        navigate("/login");
+    }
+
+
     return (
         <AuthContext.Provider value={{
             register,
             message,
             setMessage,
             login,
-            user
+            user,
+            logout
         }}>
             {children}
         </AuthContext.Provider>

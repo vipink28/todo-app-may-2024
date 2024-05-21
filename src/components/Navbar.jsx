@@ -4,7 +4,7 @@ import AuthContext from '../auth/AuthContext';
 
 
 function Navbar(props) {
-    const { user } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
 
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -33,19 +33,15 @@ function Navbar(props) {
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/create-task">Create Task</Link>
                                     </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/profile">Profile</Link>
-                                    </li>
 
                                     <li className="nav-item dropdown">
                                         <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             {user?.name}
                                         </Link>
                                         <ul className="dropdown-menu dropdown-menu-end">
-                                            <li><Link className="dropdown-item" href="#">Action</Link></li>
-                                            <li><Link className="dropdown-item" href="#">Another action</Link></li>
+                                            <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
                                             <li><hr className="dropdown-divider" /></li>
-                                            <li><Link className="dropdown-item" href="#">Something else here</Link></li>
+                                            <li><span className="dropdown-item" onClick={logout}>Logout</span></li>
                                         </ul>
                                     </li>
                                 </>

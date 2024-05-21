@@ -19,5 +19,14 @@
       "id": 3
     }
   ],
-  "tasks": []
+  "tasks": [
+    {
+      "title": "Meeting",
+      "userid": 1,
+      "modified": "Tue May 21 2024 10:49:36 GMT+0530 (India Standard Time)",
+      "description": "Meeting with client",
+      "duedate": "2024-05-22T14:53",
+      "id": 1
+    }
+  ]
 }
