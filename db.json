@@ -27,6 +27,38 @@
       "description": "Meeting with client",
       "duedate": "2024-05-22T14:53",
       "id": 1
+    },
+    {
+      "title": "Grocery",
+      "userid": 1,
+      "modified": "Wed May 22 2024 09:16:49 GMT+0530 (India Standard Time)",
+      "description": "Buy grocery for house",
+      "duedate": "2024-05-23T13:16",
+      "id": 2
+    },
+    {
+      "title": "Meeting",
+      "userid": 1,
+      "modified": "Wed May 22 2024 09:17:10 GMT+0530 (India Standard Time)",
+      "description": "Meeting with Bill Gates",
+      "duedate": "2024-05-24T13:16",
+      "id": 3
+    },
+    {
+      "title": "Bill Payment",
+      "userid": 1,
+      "modified": "Wed May 22 2024 09:17:37 GMT+0530 (India Standard Time)",
+      "description": "Pay Electricity Bill",
+      "duedate": "2024-05-29T13:16",
+      "id": 4
+    },
+    {
+      "title": "Appointment",
+      "userid": 1,
+      "modified": "Wed May 22 2024 09:18:02 GMT+0530 (India Standard Time)",
+      "description": "Appointment with the doctor",
+      "duedate": "2024-05-23T13:16",
+      "id": 5
     }
   ]
 }
