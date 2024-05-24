@@ -1,12 +1,25 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import TaskContext from '../context/TaskContext';
 import AuthContext from '../auth/AuthContext';
 
 function TaskForm(props) {
-    const { isUpdate, setIsUpdate } = props;
-    const [formData, setFormData] = useState();
-    const { message, setMessage, addTask } = useContext(TaskContext);
+    const init = {
+        title: "",
+        description: "",
+        duedate: ""
+    }
+
+    const { isUpdate, setIsUpdate, data } = props;
+    console.log(data);
+    const [formData, setFormData] = useState(init);
+    const { message, setMessage, addTask, updateTask } = useContext(TaskContext);
     const { user } = useContext(AuthContext);
+
+    useEffect(() => {
+        if (isUpdate) {
+            setFormData(data);
+        }
+    }, [isUpdate])
 
 
     const handleChange = (e) => {
@@ -22,11 +35,24 @@ function TaskForm(props) {
     const submitForm = (e) => {
         e.preventDefault();
         addTask(formData);
+        setFormData(init);
+        setTimeout(() => {
+            setMessage("");
+        }, 3000)
     }
 
     const cancelUpdate = (e) => {
         e.preventDefault();
         setIsUpdate(false);
+        setFormData(init);
+    }
+
+    const onUpdate = (e) => {
+        e.preventDefault();
+        updateTask(formData);
+        setTimeout(() => {
+            setMessage("");
+        }, 3000)
     }
 
 
@@ -38,21 +64,21 @@ function TaskForm(props) {
                 <form>
                     <div className='mb-3'>
                         <label className='form-label'>Title</label>
-                        <input type="text" name='title' className='form-control' onChange={handleChange} />
+                        <input type="text" name='title' className='form-control' value={formData.title} onChange={handleChange} />
                     </div>
                     <div className='mb-3'>
                         <label className='form-label'>Description</label>
-                        <textarea name="description" className='form-control' rows="5" onChange={handleChange} ></textarea>
+                        <textarea name="description" className='form-control' rows="5" value={formData.description} onChange={handleChange} ></textarea>
                     </div>
                     <div className='mb-3'>
                         <label className='form-label'>Due Date</label>
-                        <input type="datetime-local" name='duedate' className='form-control' onChange={handleChange} />
+                        <input type="datetime-local" name='duedate' className='form-control' value={formData.duedate} onChange={handleChange} />
                     </div>
                     <p>{message}</p>
                     {
                         isUpdate ?
                             <>
-                                <button className='btn btn-primary'>Update Task</button>
+                                <button className='btn btn-primary' onClick={onUpdate}>Update Task</button>
                                 <button className='btn btn-warning ms-2' onClick={cancelUpdate}>Cancel</button>
                             </> :
                             <button onClick={submitForm} className='btn btn-primary'>Create Task</button>

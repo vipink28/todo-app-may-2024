@@ -25,3 +25,7 @@ body {
     border-color: #131823 !important;
     background-color: #131823 !important;
 }
+
+.bg-secondary {
+    background-color: #202938 !important;
+}

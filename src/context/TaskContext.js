@@ -22,6 +22,26 @@ export const TaskProvider = ({ children }) => {
         const response = await fetch("http://localhost:5000/tasks", config);
         if (response.status === 201) {
             setMessage("Task created successfully");
+            getAllTasks(user.id);
+        } else {
+            setMessage("Something went wrong");
+        }
+    }
+
+
+    //update task
+    const updateTask = async (formData) => {
+        const config = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+        const response = await fetch(`http://localhost:5000/tasks/${formData.id}`, config);
+        if (response.status === 200) {
+            setMessage("Task updated successfully");
+            getAllTasks(user.id);
         } else {
             setMessage("Something went wrong");
         }
@@ -57,7 +77,8 @@ export const TaskProvider = ({ children }) => {
             addTask,
             latestTask,
             recentTasks,
-            allTasks
+            allTasks,
+            updateTask
         }}>
             {children}
         </TaskContext.Provider>
