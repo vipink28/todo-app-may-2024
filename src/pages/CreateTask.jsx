@@ -13,7 +13,9 @@ function CreateTask(props) {
         <div className='container-fluid h-100'>
             <div className="row h-100">
                 <div className='col-lg-6 h-100 d-flex align-items-center justify-content-center flex-column text-white bg-primary'>
-                    <TaskForm isUpdate={isUpdate} setIsUpdate={setIsUpdate} data={latestTask} />
+                    <div className='w-50'>
+                        <TaskForm isUpdate={isUpdate} setIsUpdate={setIsUpdate} data={latestTask} />
+                    </div>
                 </div>
 
                 <div className='col-lg-6 h-100 d-flex align-items-center justify-content-center flex-column'>

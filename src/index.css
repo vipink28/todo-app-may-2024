@@ -29,3 +29,7 @@ body {
 .bg-secondary {
     background-color: #202938 !important;
 }
+
+.modal-dialog {
+    max-width: 600px;
+}
