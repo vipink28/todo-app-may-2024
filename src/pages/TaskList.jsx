@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 import TaskContext from '../context/TaskContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,6 +18,22 @@ const reducer = (state, action) => {
 function TaskList(props) {
     const { allTasks } = useContext(TaskContext);
     const [state, dispatch] = useReducer(reducer, { isType: "", data: null });
+
+    const [taskData, setTaskData] = useState(null);
+
+    useEffect(() => {
+        if (allTasks) {
+            setTaskData(allTasks)
+        }
+    }, [allTasks])
+
+    const handleSearch = (e) => {
+        let filteredTask = allTasks.filter((task) => (
+            task.title.toLowerCase().includes(e.target.value.toLowerCase())
+        ))
+        setTaskData(filteredTask);
+    }
+
     return (
         <div className='container py-5'>
             <div className='bg-primary text-white p-3'>
@@ -25,7 +41,9 @@ function TaskList(props) {
                     <h3>Task List</h3>
                     <Link to="/create-task" className='btn btn-info ms-auto'>Create Task</Link>
                 </div>
-
+                <div className='py-3'>
+                    <input type="text" className='form-control' onChange={handleSearch} />
+                </div>
                 <div className='p-3'>
                     {/* header row */}
                     <div className='row mb-3'>
@@ -36,8 +54,8 @@ function TaskList(props) {
                         <div className='col-2'>Actions</div>
                     </div>
                     {
-                        allTasks ?
-                            allTasks.map((task) => {
+                        taskData ?
+                            taskData.map((task) => {
                                 return (
                                     <div key={task.id} className='row bg-secondary mb-2 py-3 rounded-2 align-items-center'>
                                         <div className='col-1'>{task.id}</div>

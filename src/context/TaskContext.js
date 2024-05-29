@@ -73,7 +73,6 @@ export const TaskProvider = ({ children }) => {
         }
     }
 
-
     useEffect(() => {
         if (user) {
             getAllTasks(user.id);
