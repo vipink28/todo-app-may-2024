@@ -4,7 +4,8 @@
       "name": "Vipin",
       "email": "vipin@gmail.com",
       "password": "admin",
-      "id": 1
+      "id": 1,
+      "role": "admin"
     },
     {
       "name": "Aman",

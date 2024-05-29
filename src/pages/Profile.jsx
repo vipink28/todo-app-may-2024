@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Profile(props) {
     const convertBase64 = (file) => {
@@ -14,9 +14,17 @@ function Profile(props) {
         });
     };
 
+    const [imgUrl, setImgUrl] = useState();
+
+    const handleImageUpload = async (e) => {
+        let imageStr = await convertBase64(e.target.files[0]);
+        setImgUrl(imageStr);
+    }
+
     return (
         <div>
-
+            <input type="file" onChange={handleImageUpload} />
+            <img src={imgUrl} alt="" />
         </div>
     );
 }
