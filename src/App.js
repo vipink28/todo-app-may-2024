@@ -15,7 +15,6 @@ import ProtectedRoute from './auth/ProtectedRoute';
 import { TaskProvider } from './context/TaskContext';
 
 function App() {
-
   return (
     <BrowserRouter>
       <AuthProvider>
